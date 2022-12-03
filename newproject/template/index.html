@@ -44,21 +44,25 @@
         <header>
             <div class="container">
                 <div class="row">
+					{% for me in startme %}
                     <div class="col-md-3 col-sm-4 col-xs-12">
-                        <p><i class="fa fa-phone"></i><span> Phone</span>010-020-0340</p>
+                        <p><i class="fa fa-phone"></i><span> Phone</span>{{ me.phone }}</p>
                     </div>
+					
                     <div class="col-md-3 col-sm-4 col-xs-12">
-                        <p><i class="fa fa-envelope-o"></i><span> Email</span><a href="#">awesome@company.com</a></p>
+                        <p><i class="fa fa-envelope-o"></i><span> Email</span><a href="#">{{ me.email }}</a></p>
                     </div>
+					
                     <div class="col-md-5 col-sm-4 col-xs-12">
                         <ul class="social-icon">
                             <li><span>Meet us on</span></li>
-                            <li><a href="#" class="fa fa-facebook"></a></li>
-                            <li><a href="#" class="fa fa-twitter"></a></li>
-                            <li><a href="#" class="fa fa-instagram"></a></li>
-                            <li><a href="#" class="fa fa-apple"></a></li>
+                            <li><a href="{{ me.facebook }}" class="fa fa-facebook"></a></li>
+                            <li><a href="{{ me.twitter }}" class="fa fa-twitter"></a></li>
+                            <li><a href="{{ me.instagram }}" class="fa fa-instagram"></a></li>
+                            <li><a href="{{ me.telegram }}" class="fa fa-telegram"></a></li>
                         </ul>
                     </div>
+					{% endfor %}
                 </div>
             </div>
         </header>
@@ -164,49 +168,22 @@
     	<section id="team">
     		<div class="container">
     			<div class="row">
+					
     				<div class="col-md-12">
     					<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>AWESOME</span> TEAM</h2>
     				</div>
+					{% for team in startteam %}
     				<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="50" data-wow-delay="1.3s">
     					<div class="team-wrapper">
-    						<img src="{% static 'images/team-img1.jpg' %}" class="img-responsive" alt="team img 1">
+    						<img src="{{ team.image.url }}" class="img-responsive" alt="team img 1">
     							<div class="team-des">
-    								<h4>TRACY</h4>
-    								<span>Designer</span>
-    								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molest.</p>
+    								<h4>{{ team.name }}</h4>
+    								<span>{{ team.job }}</span>
+    								<p>{{ team.text }}</p>
     							</div>
     					</div>
     				</div>
-    				<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="50" data-wow-delay="1.6s">
-    					<div class="team-wrapper">
-    						<img src="{% static 'images/team-img2.jpg' %}" class="img-responsive" alt="team img 2">
-    							<div class="team-des">
-    								<h4>MARY</h4>
-    								<span>Developer</span>
-    								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molest.</p>
-    							</div>
-    					</div>
-    				</div>
-    				<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="50" data-wow-delay="1.3s">
-    					<div class="team-wrapper">
-    						<img src="{% static 'images/team-img3.jpg' %}" class="img-responsive" alt="team img 3">
-    							<div class="team-des">
-    								<h4>JULIA</h4>
-    								<span>Director</span>
-    								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molest.</p>
-    							</div>
-    					</div>
-    				</div>
-    				<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="50" data-wow-delay="1.6s">
-    					<div class="team-wrapper">
-    						<img src="{% static 'images/team-img4.jpg' %}" class="img-responsive" alt="team img 4">
-    							<div class="team-des">
-    								<h4>LINDA</h4>
-    								<span>Manager</span>
-    								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molest.</p>
-    							</div>
-    					</div>
-    				</div>
+					{% endfor %}
     			</div>
     		</div>
     	</section>
@@ -224,7 +201,7 @@
     					<h4>Web Design</h4>
     					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. Adipiscing vitae vel quam proin eget mauris eget. Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie.</p>
     				</div>
-    				<div class="col-md-4 active wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
+    				<div class="col-md-4  wow fadeIn" data-wow-offset="50" data-wow-delay="0.9s">
     					<i class="fa fa-cloud"></i>
     					<h4>Cloud Computing</h4>
     					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. Adipiscing vitae vel quam proin eget mauris eget. Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie.</p>
@@ -246,17 +223,19 @@
     				<div class="col-md-12">
     					<h2 class="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s"><span>AWESOME</span> PORTFOLIO</h2>
     				</div>
+					{% for port in startportfolio %}
     				<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="50" data-wow-delay="0.6s">
                         <div class="portfolio-thumb">
-    					   <img src="{% static 'images/portfolio-img1.jpg' %}" class="img-responsive" alt="portfolio img 1">
+    					   <img src="{{ port.image.url }}" class="img-responsive" alt="portfolio img 1">
                                 <div class="portfolio-overlay">
-                                    <h4>Project One</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget dia.</p>
+                                    <h4>{{ port.number }}</h4>
+                                    <p>{{ port.text }}</p>
                                     <a href="#" class="btn btn-default">DETAIL</a>
                                 </div>
                         </div>
     				</div>
-    				<div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="50" data-wow-delay="0.6s">
+					{% endfor %}
+    				{% comment %} <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-offset="50" data-wow-delay="0.6s">
                         <div class="portfolio-thumb">
                            <img src="{% static 'images/portfolio-img2.jpg' %}" class="img-responsive" alt="portfolio img 2">
                                 <div class="portfolio-overlay">
@@ -325,7 +304,7 @@
                                     <a href="#" class="btn btn-default">DETAIL</a>
                                 </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
     			</div>
     		</div>
     	</section>
@@ -352,21 +331,23 @@
                             <input type="submit" class="form-control">
     					</form>
     				</div>
+					{% for me in startme %}
     				<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-offset="50" data-wow-delay="0.6s">
     					<address>
     						<p class="address-title">OUR ADDRESS</p>
     						<span>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie.</span>
-    						<p><i class="fa fa-phone"></i> 010-020-0340</p>
-    						<p><i class="fa fa-envelope-o"></i> awesome@company.com</p>
-    						<p><i class="fa fa-map-marker"></i> 663 New Walk Roadside, Birdeye View, GO 11020</p>
+    						<p><i class="fa fa-phone"></i> {{me.phone }}</p>
+    						<p><i class="fa fa-envelope-o"></i> {{ me.email }}</p>
+    						<p> <a href="https://www.google.com/maps/place/%D0%A2%D0%B0%D1%82%D1%83+%D0%81%D1%82%D0%BE%D0%BA%D1%85%D0%BE%D0%BD%D0%B0%D1%81%D0%B8/@41.3533367,69.2872869,19.02z/data=!4m5!3m4!1s0x38ae8cacd22d4d43:0xd667e2df8b15baea!8m2!3d41.3535998!4d69.2874244" ><i class="fa fa-map-marker"></i></a> {{ me.location }}</p>
     					</address>
     					<ul class="social-icon">
     						<li><h4>WE ARE SOCIAL</h4></li>
-    						<li><a href="#" class="fa fa-facebook"></a></li>
-    						<li><a href="#" class="fa fa-twitter"></a></li>
-    						<li><a href="#" class="fa fa-instagram"></a></li>
+    						<li><a href="{{ me.facebook }}" class="fa fa-facebook"></a></li>
+    						<li><a href="{{ me.twitter }}" class="fa fa-twitter"></a></li>
+    						<li><a href="{{ me.instagram }}" class="fa fa-instagram"></a></li>
     					</ul>
     				</div>
+					{% endfor %}
     			</div>
     		</div>
     	</section>
