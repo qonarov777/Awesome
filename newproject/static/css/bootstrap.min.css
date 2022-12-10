@@ -10,6 +10,8 @@ html {
     -ms-text-size-adjust: 100%
 }
 
+
+
 body {
     margin: 0
 }
@@ -5459,6 +5461,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
         float: right !important;
         margin-right: -15px
     }
+  
 
     .navbar-right~.navbar-right {
         margin-right: 0
