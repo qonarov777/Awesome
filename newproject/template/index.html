@@ -63,6 +63,7 @@
                         </ul>
                     </div>
 					{% endfor %}
+					
                 </div>
             </div>
         </header>
@@ -87,9 +88,11 @@
 						<li><a href="#service">SERVICE</a></li>
 						<li><a href="#portfolio">PORTFOLIO</a></li>
 						<li><a href="#contact">CONTACT</a></li>
+						<li><a href="{% url 'logout' %}">Logout</a></li>
 						{% comment %} <input type="text">	 {% endcomment %}
 						
 					</ul>
+					<!-- <span><a href="{% url 'login' %}"> Logout </a></span> -->
 				</div>
 			</div>
 		</nav>
