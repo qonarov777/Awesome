@@ -6,7 +6,7 @@ from .views import Logoutview
 
 urlpatterns = [
     path('home/', Indexview, name="home"),
-    path('', Registerview, name="register"), 
-    path('login/', Loginview, name="login"),
+    path('register/', Registerview, name="register"), 
+    path('', Loginview, name="login"),
     path('logout/', Logoutview, name="logout"),
 ]

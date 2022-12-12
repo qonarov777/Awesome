@@ -51,6 +51,7 @@ def Loginview(request):
     return render(request, 'login.html', context=context)
 
 def Logoutview(request):
+    
     logout(request)
     
     return redirect('login')
