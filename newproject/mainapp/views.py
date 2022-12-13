@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Starthome, Startteam, Startportfolio, Startme
+from .models import Starthome, Startteam, Startportfolio, Startme, Contact
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
 
 def Indexview(request):
     
@@ -11,6 +12,18 @@ def Indexview(request):
     startteam=Startteam.objects.all()
     startme=Startme.objects.all()
     startportfolio=Startportfolio.objects.all()
+    
+    if request.method=="POST":
+        contact=Contact()
+        name=request.POST.get('name')
+        number=request.POST.get('number')
+        message=request.POST.get('message')
+        contact.name=name
+        contact.number=number
+        contact.message=message
+        contact.save()
+        return HttpResponse(" Thanks for your message ! \n <a href='http://127.0.0.1:8000/home/''> Go back </a> ")
+    
     context={
                 'starthome':starthome, 
                 'startteam':startteam,

@@ -55,3 +55,16 @@ class Startme(models.Model):
     class Meta:
         verbose_name ='Address'
         verbose_name_plural='Address'
+        
+class Contact(models.Model):
+    name=models.CharField( max_length=50)
+    number= models.IntegerField( default=None , blank=True, null=True)
+    message= models.CharField(max_length=500)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name ='Message'
+        verbose_name_plural='Messages'
+    
