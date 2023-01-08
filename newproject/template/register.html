@@ -83,10 +83,12 @@
             {{form.username}}
             {{form.email.label}}
             {{form.email}}
+            {% comment %} <h5> Password have 8 simvols, it have got letters and numbers </h5> {% endcomment %}
             {{form.password1.label}}
             {{form.password1}}
             {{form.password2.label}}
             {{form.password2}}
+            <h3>  </h3>
             <input type='submit' value='sign up' />
 
             {{ form.errors }}
