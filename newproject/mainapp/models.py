@@ -67,4 +67,15 @@ class Contact(models.Model):
     class Meta:
         verbose_name ='Message'
         verbose_name_plural='Messages'
+
+class Sity(models.Model):
+    name=models.CharField( max_length=50)
+    number= models.IntegerField( default=None , blank=True, null=True)
+    message= models.CharField(max_length=500)
     
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name ='Message'
+        verbose_name_plural='Message'
